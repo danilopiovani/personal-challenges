@@ -21,7 +21,8 @@
     "browser-sync": "^2.27.11",
     "next": "13.0.7",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.57.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
