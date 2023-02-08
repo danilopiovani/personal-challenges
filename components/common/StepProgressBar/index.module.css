@@ -1,0 +1,22 @@
+.step_item {
+  @apply relative flex flex-col justify-center items-center w-36;
+}
+.step_item:not(:first-child):before {
+  @apply content-[''] bg-slate-200 absolute w-full h-[3px] right-2/4 top-[58px] -translate-y-2/4;
+}
+.step {
+  @apply w-14 h-14 flex items-center justify-center z-10 relative bg-slate-700 rounded-full font-semibold text-white border-4 border-white;
+}
+.active .step {
+  @apply bg-sky-600;
+}
+.complete .step {
+  @apply bg-green-600;
+}
+.complete p:not(:first-child) {
+  @apply text-slate-300;
+}
+.complete:not(:first-child):before,
+.active:not(:first-child):before {
+  @apply bg-green-600;
+}

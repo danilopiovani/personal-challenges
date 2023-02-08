@@ -1,0 +1,19 @@
+.largeCopy {
+  font-size: 2vw;
+  line-height: 0.2;
+  text-transform: capitalize;
+}
+.largeCopy img {
+  width: 6.25vw;
+}
+.largeCopy p {
+  padding-top: 0.573vw;
+}
+.firstLine,
+.secondLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.521vw;
+  gap: 1.302vw;
+}

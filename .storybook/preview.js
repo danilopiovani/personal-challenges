@@ -1,5 +1,5 @@
 import * as NextImage from 'next/image';
-import '../styles/globals.css';
+import '../pages/globals.css';
 
 const BREAKPOINTS_INT = {
   xs: 375,
@@ -7,6 +7,7 @@ const BREAKPOINTS_INT = {
   md: 900,
   lg: 1200,
   xl: 1536,
+  xxl: 1920,
 };
 
 const customViewports = Object.fromEntries(
