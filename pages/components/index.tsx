@@ -2413,7 +2413,10 @@ const Components: NextPage = () => {
                   <div className="w-full flex flex-col bg-gradient-to-r from-cyan-400 to-sky-500 p-10 rounded-lg">
                     <div className="w-full flex flex-row gap-5">
                       {textures.map((item, index) => (
-                        <div className="w-full flex flex-col items-center justify-start border-2 rounded-lg border-white hover:border-sky-500 cursor-pointer">
+                        <div
+                          key={`textures__${index}`}
+                          className="w-full flex flex-col items-center justify-start border-2 rounded-lg border-white hover:border-sky-500 cursor-pointer"
+                        >
                           <img
                             className="w-40 h-40 object-cover rounded-t"
                             src={item.image}
@@ -2473,6 +2476,7 @@ const Components: NextPage = () => {
                     <div className="w-full grid grid-cols-4 gap-5">
                       {countries.map((item, index) => (
                         <button
+                          key={`countries__${index}`}
                           className={`h-16 btn text-slate-500 p-2 items-center justify-start border rounded-lg bg-white border-white hover:border-slate-500 cursor-pointer ${
                             index < 3 &&
                             'border-2 border-green-500 bg-green-100'
@@ -2488,6 +2492,7 @@ const Components: NextPage = () => {
                     <div className="w-full grid grid-cols-4 gap-5">
                       {standards.map((item, index) => (
                         <button
+                          key={`standards__${index}`}
                           className={`h-16 btn text-slate-500 p-2 items-center justify-start border rounded-lg bg-white border-white hover:border-slate-500 cursor-pointer ${
                             index < 3 &&
                             'border-2 border-green-500 bg-green-100'
@@ -2525,6 +2530,7 @@ const Components: NextPage = () => {
                     <div className="w-full grid grid-cols-4 gap-5">
                       {performances.map((item, index) => (
                         <button
+                          key={`performance__${index}`}
                           className={`h-16 btn p-2 text-slate-500  items-center justify-start border-2 rounded-lg bg-white border-white hover:border-slate-500 cursor-pointer ${
                             index < 3 &&
                             'border-2 border-green-500 bg-green-100'
@@ -2565,6 +2571,7 @@ const Components: NextPage = () => {
                     <div className="w-full flex flex-row gap-5 pb-8 justify-center items-center content-center">
                       {fragranceTypes.map((item, index) => (
                         <button
+                          key={`fragTypes__${index}`}
                           className={` uppercase h-16 w-48 btn text-slate-500 p-2 items-center justify-start border rounded-lg bg-white border-white hover:border-slate-500 cursor-pointer ${
                             index === 1 &&
                             'border-2 border-green-500 bg-green-100'
@@ -2580,8 +2587,11 @@ const Components: NextPage = () => {
                           filter by category
                         </div>
 
-                        {fragrances.map((item) => (
-                          <button className="h-8 btn uppercase text-xs items-center justify-start border rounded-lg bg-white border-white hover:border-slate-500 cursor-pointer">
+                        {fragrances.map((item, index) => (
+                          <button
+                            key={`frag__${index}`}
+                            className="h-8 btn uppercase text-xs items-center justify-start border rounded-lg bg-white border-white hover:border-slate-500 cursor-pointer"
+                          >
                             {item.label}
                           </button>
                         ))}
@@ -2597,8 +2607,11 @@ const Components: NextPage = () => {
                                 fragrance?.id ===
                                 'http://fragrance.atelier.co/woody'
                             )?.[0]
-                            .notes.map((item) => (
-                              <button className="text-xs text-slate-600 h-8 btn items-center justify-start border rounded-lg bg-white bg-opacity-30 border-white hover:border-slate-500 cursor-pointer">
+                            .notes.map((item, index) => (
+                              <button
+                                key={`notes__${index}`}
+                                className="text-xs text-slate-600 h-8 btn items-center justify-start border rounded-lg bg-white bg-opacity-30 border-white hover:border-slate-500 cursor-pointer"
+                              >
                                 {item.label}
                               </button>
                             ))}
@@ -2636,6 +2649,7 @@ const Components: NextPage = () => {
                     <div className="w-full flex flex-row gap-5 pb-10 justify-center items-center content-center">
                       {colorTypes.map((item, index) => (
                         <button
+                          key={`colorTypes__${index}`}
                           className={`uppercase h-16 w-48 btn text-slate-500 p-2 items-center justify-start border rounded-lg bg-white border-white hover:border-slate-500 cursor-pointer ${
                             index === 0 &&
                             'border-2 border-green-500 bg-green-100'
@@ -2650,8 +2664,9 @@ const Components: NextPage = () => {
                     </div>
                     <div className="w-full flex flex-row justify-center items-center content-center">
                       <div className="w-fit grid grid-cols-9 gap-2 justify-center">
-                        {colourPallet.map((item) => (
+                        {colourPallet.map((item, index) => (
                           <div
+                            key={`colour__${index}`}
                             style={{
                               backgroundColor: item.hex,
                             }}
@@ -2808,8 +2823,12 @@ const Components: NextPage = () => {
                   Fragrances
                 </div>
                 <div className="uppercase tracking-wide text-slate-400 text-xs mb-2 flex flex-col gap-2">
-                  {mainObject.samples[0].fragrances.map((item) => {
-                    return <div className="flex gap-2">{item?.label}</div>;
+                  {mainObject.samples[0].fragrances.map((item, index) => {
+                    return (
+                      <div key={`frag__${index}`} className="flex gap-2">
+                        {item?.label}
+                      </div>
+                    );
                   })}
                 </div>
               </div>
@@ -2838,8 +2857,12 @@ const Components: NextPage = () => {
                   Countries
                 </div>
                 <div className="uppercase tracking-wide text-slate-400 text-xs mb-2 pb-2 flex flex-col gap-2">
-                  {mainObject.markets.map((market) => {
-                    return <div className="flex gap-2">{market.label}</div>;
+                  {mainObject.markets.map((market, index) => {
+                    return (
+                      <div key={`ovvMarkets__${index}`} className="flex gap-2">
+                        {market.label}
+                      </div>
+                    );
                   })}
                 </div>
               </div>
@@ -2848,8 +2871,12 @@ const Components: NextPage = () => {
                   COSMETIC STANDARDS
                 </div>
                 <div className="block uppercase tracking-wide text-slate-400 text-xs mb-2">
-                  {mainObject.standards.map((standard) => {
-                    return <div className="flex gap-2">{standard.label}</div>;
+                  {mainObject.standards.map((standard, index) => {
+                    return (
+                      <div key={`standards__${index}`} className="flex gap-2">
+                        {standard.label}
+                      </div>
+                    );
                   })}
                 </div>
               </div>
@@ -2861,9 +2888,12 @@ const Components: NextPage = () => {
               Performance
             </div>
             <div className="block uppercase tracking-wide text-slate-400 text-xs mb-2">
-              {mainObject.samples[0].performance.map((perform) => {
+              {mainObject.samples[0].performance.map((perform, index) => {
                 return (
-                  <div className="uppercase tracking-wide text-slate-400 text-xs mb-2 flex flex-row items-center gap-3">
+                  <div
+                    key={`perf__${index}`}
+                    className="uppercase tracking-wide text-slate-400 text-xs mb-2 flex flex-row items-center gap-3"
+                  >
                     <div
                       className={`w-4 h-4 border rounded-full`}
                       style={{
@@ -2880,8 +2910,12 @@ const Components: NextPage = () => {
               Ingredients
             </div>
             <div className="uppercase tracking-wide text-slate-400 text-xs mb-2 flex flex-col gap-2">
-              {mainObject.samples[0].ingredients.map((item) => {
-                return <div className="flex gap-2">{item.label}</div>;
+              {mainObject.samples[0].ingredients.map((item, index) => {
+                return (
+                  <div key={`ingri__${index}`} className="flex gap-2">
+                    {item.label}
+                  </div>
+                );
               })}
             </div>
             <div className="block uppercase tracking-wide text-slate-500 text-xs font-bold mb-2 pt-5">
@@ -2890,17 +2924,21 @@ const Components: NextPage = () => {
             <div className="uppercase tracking-wide text-slate-400 text-xs mb-2 flex flex-col gap-2">
               {mainObject.standards.length > 0 && (
                 <div className="flex gap-2">
-                  {mainObject.standards.map((standard) => {
+                  {mainObject.standards.map((standard, index) => {
                     return (
-                      <div className="flex gap-2">
+                      <div key={`std__${index}`} className="flex gap-2">
                         Exclusions from {standard.label}
                       </div>
                     );
                   })}
                 </div>
               )}
-              {mainObject.exclusions.map((item) => {
-                return <div className="flex gap-2">{item?.label}</div>;
+              {mainObject.exclusions.map((item, index) => {
+                return (
+                  <div key={`exc__${index}`} className="flex gap-2">
+                    {item?.label}
+                  </div>
+                );
               })}
             </div>
           </div>
